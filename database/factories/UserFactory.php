@@ -23,8 +23,25 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $random = rand(0,1);
+
+        if ($random == 1)
+        {
+            $statut = 'eleve';
+        }else
+        {
+            $statut = 'professeur';
+        }
+
         return [
-            'name' => fake()->name(),
+            'name' => fake()->lastName('fr_FR'),
+            'prenom' => fake()->firstName('fr_FR'),
+            'statut' => $statut,
+            'date_naissance' => fake()->date('Y-m-d'),
+            'adresse' => fake()->address('fr_FR'),
+            'code_postal' => fake()->postcode('fr_FR'),
+            'ville' => fake()->city('fr_FR'),
+            'telephone' => fake()->phoneNumber('fr_FR'),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('prenom', 70);
+            $table->enum('statut', ['professeur', 'eleve']);
             $table->date('date_naissance');
             $table->string('adresse');
             $table->string('code_postal', 50);

@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Cour;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +18,14 @@ class InscriptionFactory extends Factory
      */
     public function definition(): array
     {
+        $eleveId = User::where('statut', 'eleve')->pluck('id')->toArray();
+        $eleveId = $eleveId[array_rand($eleveId)];
+        $coursId = Cour::pluck('id')->toArray();
+        $coursId = $coursId[array_rand($coursId)];
+
         return [
-            //
+            'eleve_id' => $eleveId,
+            'cours_id' => $coursId,
         ];
     }
 }

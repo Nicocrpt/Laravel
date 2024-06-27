@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,9 +16,13 @@ class CourFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition(): array
-    {
+    {   
+        $profId = User::where('statut', 'professeur')->pluck('id')->toArray();
+        $profId = $profId[array_rand($profId)];
+
         return [
-            //
+            'nom' => fake()->title(),
+            'professeur_id' => $profId,
         ];
     }
 }
