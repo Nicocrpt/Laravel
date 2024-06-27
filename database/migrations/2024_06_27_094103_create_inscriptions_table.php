@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('inscriptions', function (Blueprint $table) {
             $table->id();
             $table->string('cours', 150);
-            $table->string('eleve', 70);
             $table->timestamps();
             $table->foreignId('eleve_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('cours_id')->constrained('cours')->onDelete('cascade');
