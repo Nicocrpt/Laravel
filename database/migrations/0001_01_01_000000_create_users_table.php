@@ -18,9 +18,9 @@ return new class extends Migration
             $table->enum('statut', ['professeur', 'eleve']);
             $table->date('date_naissance');
             $table->string('adresse');
-            $table->string('code_postal', 50);
+            $table->string('code_postal', 10);
             $table->string('ville', 150);
-            $table->string('telephone', 70);
+            $table->string('telephone', 20);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

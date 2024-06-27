@@ -23,9 +23,9 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
-        $random = rand(0,1);
+        $random = rand(0,99);
 
-        if ($random == 1)
+        if ($random < 75)
         {
             $statut = 'eleve';
         }else

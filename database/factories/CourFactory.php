@@ -21,7 +21,7 @@ class CourFactory extends Factory
         $profId = $profId[array_rand($profId)];
 
         return [
-            'nom' => fake()->title(),
+            'nom' => fake()->jobTitle(),
             'professeur_id' => $profId,
         ];
     }

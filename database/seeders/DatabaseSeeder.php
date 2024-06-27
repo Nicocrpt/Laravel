@@ -16,10 +16,12 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
+        // $inscription = User::where('statut', 'eleve')->pluck('id')->toArray();
+        // $inscription = count($inscription);
 
         User::factory(10)->create();
         Cour::factory(5)->create();
-        Inscription::factory(10)->create();
+        Inscription::factory(20)->create();
 
     }
 }

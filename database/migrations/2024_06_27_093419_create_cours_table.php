@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nom', 150);
             $table->foreignId('professeur_id')->constrained('users')->onDelete('cascade');
-            $table->timestamps();
+            $table->dateTime('created_at')->useCurrent();
+            $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
             
         });
     }
@@ -27,4 +28,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('cours');
     }
+
 };

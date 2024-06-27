@@ -20,6 +20,7 @@ class InscriptionFactory extends Factory
     {
         $eleveId = User::where('statut', 'eleve')->pluck('id')->toArray();
         $eleveId = $eleveId[array_rand($eleveId)];
+        
         $coursId = Cour::pluck('id')->toArray();
         $coursId = $coursId[array_rand($coursId)];
 
